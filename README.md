@@ -1,0 +1,2 @@
+# chores
+Chores management program
