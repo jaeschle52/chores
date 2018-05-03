@@ -12,9 +12,19 @@ public class Dollar {
     }
     
     public Dollar(String value) {
-    	String p1 = value.substring(0, 2);
-    	String p2 = value.substring(3, 4);
+    	if (value.contains("$") ) {
+    		value = value.substring(1);
+    	}
+    	String[] pieces = value.split("\\.");
+    	dollar = Integer.valueOf(pieces[1]);
+    	cents = Integer.valueOf(pieces[2].substring(0, 1));
     }
+    
+    public Dollar (int d, int c) {
+    	dollar = d;
+    	cents = c;
+    }
+    
     
     public void addMoney(Dollar d2) {
     	int cent = cents + d2.cents;
